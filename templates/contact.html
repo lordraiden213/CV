@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <title>Contact Me - Lord Raiden Ramirez</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='contact.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <script defer src="{{ url_for('static', filename='contact.js') }}"></script>
+    <style>
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: #fff;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        z-index: 100;
+      }
+      nav ul.show {
+        display: flex;
+      }
+      .hamburger {
+        display: flex !important;
+        flex-direction: column;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        justify-content: center;
+        gap: 5px;
+        z-index: 101;
+      }
+      .hamburger div {
+        height: 4px;
+        background: #333;
+        border-radius: 2px;
+        width: 100%;
+        transition: all 0.3s;
+      }
+      nav .btn-outline {
+        display: none;
+      }
+    }
+    @media (min-width: 769px) {
+      .hamburger {
+        display: none !important;
+      }
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">Lord Raiden Ramirez</div>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('services') }}">Services</a></li>
+                <li><a href="{{ url_for('about') }}">About Me</a></li>
+                <li><a href="{{ url_for('portfolio') }}">Portfolio</a></li>
+                <li class="active"><a href="{{ url_for('contact') }}">Contact Me</a></li>
+            </ul>
+            <button class="btn-outline">Hire Me</button>
+            <!-- Hamburger Icon for Mobile -->
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </nav>
+
+        <section class="content-section">
+            <h1>Contact Me</h1>
+            <p>If you'd like to work together or just say hi, feel free to reach out!</p>
+
+            <form action="#" method="post" class="contact-form">
+                <label for="name">Name:</label><br />
+                <input type="text" id="name" name="name" required /><br /><br />
+
+                <label for="email">Email:</label><br />
+                <input type="email" id="email" name="email" required /><br /><br />
+
+                <label for="message">Message:</label><br />
+                <textarea id="message" name="message" rows="5" required></textarea><br /><br />
+
+                <button type="submit" class="btn-primary">Send Message</button>
+            </form>
+
+            <div class="contact-info">
+                <h2>Or reach me directly at:</h2>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:lordraiden@example.com">lordraiden@example.com</a></li>
+                    <li><strong>Phone:</strong> <a href="tel:+639123456789">+63 912 345 6789</a></li>
+                    <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/lordraiden" target="_blank" rel="noopener noreferrer">linkedin.com/in/lordraiden</a></li>
+                    <li><strong>GitHub:</strong> <a href="https://github.com/lordraiden" target="_blank" rel="noopener noreferrer">github.com/lordraiden</a></li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

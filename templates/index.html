@@ -1,0 +1,72 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        <!-- CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+
+        <!-- Inject JS URLs first -->
+        <script>
+            const servicesUrl = "{{ url_for('services') }}";
+            const homeUrl = "{{ url_for('home') }}";
+        </script>
+        
+        <!-- Custom JS -->
+        <script defer src="{{ url_for('static', filename='index.js') }}"></script>
+        
+        <title>Lord Raiden Ramirez</title>
+    </head>
+    <body>
+        <div class="container">
+            <nav>
+                <div class="logo">Lord Raiden Ramirez</div>
+                <ul>
+                    <li class="active"><a href="{{ url_for('home') }}" id="home-link">Home</a></li>
+                    <li><a href="{{ url_for('services') }}" id="services-link">Services</a></li>
+                    <li><a href="{{ url_for('about') }}">About me</a></li>
+                    <li><a href="{{ url_for('portfolio') }}">Portfolio</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact me</a></li>
+                </ul>
+                <button class="btn-outline">Hire Me</button>
+
+                <!-- Hamburger Icon for Mobile -->
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </nav>
+
+            <!-- Hero/Home section -->
+            <section class="hero" id="hero">
+                <div class="content">
+                    <p>Hi I am</p>
+                    <h1>Lord Raiden Ramirez</h1>
+                    <h2>UI/UX designer</h2>
+                    <div class="socials">
+                        <span>🔗</span>
+                        <span>📷</span>
+                        <span>🎨</span>
+                    </div>
+                    <div class="buttons">
+                        <button class="btn-primary">Hire Me</button>
+                        <button class="btn-outline">Download CV</button>
+                    </div>
+                    <div class="stats">
+                        <div><strong>5+</strong><br>Experiences</div>
+                        <div><strong>20+</strong><br>Project done</div>
+                        <div><strong>80+</strong><br>Happy Clients</div>
+                    </div>
+                </div>
+                <div class="image">
+                    <img src="{{ url_for('static', filename='images/pogi.jpg') }}" alt="Profile" />
+                </div>
+            </section>
+
+            <!-- 👇 Dynamic container for services.html -->
+            <div id="services-container"></div>
+        </div>
+    </body>
+    </html>

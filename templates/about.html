@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+
+    <meta charset="UTF-8" />
+    <title>About Me - Lord Raiden Ramirez</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <style>
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 100;
+  }
+  nav ul.show {
+    display: flex;
+  }
+  .hamburger {
+    display: flex !important;
+    flex-direction: column;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    gap: 5px;
+    z-index: 101;
+  }
+  .hamburger div {
+    height: 4px;
+    background: #333;
+    border-radius: 2px;
+    width: 100%;
+    transition: all 0.3s;
+  }
+  nav .btn-outline {
+    display: none;
+  }
+}
+@media (min-width: 769px) {
+  .hamburger {
+    display: none !important;
+  }
+}
+</style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Lord Raiden Ramirez</div>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('services') }}">Services</a></li>
+            <li class="active"><a href="{{ url_for('about') }}">About me</a></li>
+            <li><a href="{{ url_for('portfolio') }}">Portfolio</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact me</a></li>
+        </ul>
+        <button class="btn-outline">Hire Me</button>
+        <!-- Hamburger Icon for Mobile -->
+        <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </nav>
+
+    <!-- Detailed About Section -->
+    <section class="about-section">
+        <div class="about-image">
+            <img src="{{ url_for('static', filename='images/pogi.jpg') }}" alt="Lord Raiden Ramirez" />
+        </div>
+        <div class="about-text">
+            <h1>About Me</h1>
+            <p>Hello! I'm Lord Raiden Ramirez, a passionate UI/UX designer dedicated to creating beautiful and user-friendly digital experiences.</p>
+            <p>I specialize in designing websites, mobile apps, and interactive interfaces that engage users and elevate brands.</p>
+            <p>My goal is to blend creativity with functionality to deliver top-notch designs that help businesses succeed.</p>
+            
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section">
+        <h2>Skills</h2>
+        <ul class="skills-list">
+            <li>UI/UX Design</li>
+            <li>Wireframing & Prototyping</li>
+            <li>Interaction Design</li>
+            <li>Responsive Web Design</li>
+            <li>Design Thinking</li>
+            <li>Graphic Design</li>
+            <li>Usability Testing</li>
+        </ul>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="tools-section">
+        <h2>Tools I Use</h2>
+        <ul class="tools-list">
+            <li>Figma</li>
+            <li>Adobe XD</li>
+            <li>Sketch</li>
+            <li>Photoshop</li>
+            <li>Illustrator</li>
+            <li>InVision</li>
+            <li>HTML, CSS, JavaScript</li>
+        </ul>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <h2>What Clients Say</h2>
+        <div class="testimonial">
+            <p>"Lord Raiden is an exceptional designer who transformed our app's interface into something truly user-friendly and engaging. Highly recommended!"</p>
+            <strong>- Ivy Estorque, CEO of TechStart</strong>
+        </div>
+        <div class="testimonial">
+            <p>"His attention to detail and ability to understand our needs made the design process smooth and efficient. Our users love the new look."</p>
+            <strong>- Jhastyn Grajera, Product Manager at FitApp</strong>
+        </div>
+        <div class="testimonial">
+            <p>"Creative, reliable, and easy to work with — Lord Raiden helped our brand shine with fresh visuals and intuitive design."</p>
+            <strong>- John Carl, Founder of CoffeeCo</strong>
+        </div>
+         <script defer src="{{ url_for('static', filename='about.js') }}"></script>
+    </section>
+</body>
+</html>
