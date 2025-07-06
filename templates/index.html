@@ -1,0 +1,86 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        <!-- Tailwind CSS CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: '#1E3A8A', // blue-800
+                            accent: '#0D9488',  // teal-600
+                            background: '#F8FAFC', // slate-50
+                            textmain: '#334155', // slate-800
+                        }
+                    }
+                }
+            }
+        </script>
+        <!-- AOS Animate On Scroll CSS -->
+        <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+        <style>
+            html { scroll-behavior: smooth; }
+        </style>
+        
+        <!-- Custom JS -->
+        <script defer src="{{ url_for('static', filename='index.js') }}"></script>
+        
+        <title>Lord Raiden Ramirez</title>
+    </head>
+    <body class="bg-slate-100 text-textmain min-h-screen">
+        <div class="container mx-auto px-4 py-6">
+            <!-- Hero/Home section -->
+            <section class="hero flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16 py-16 bg-gradient-to-r from-[#800000] via-[#a83232] to-[#f3e8e8]" id="home" data-aos="fade-up">
+                <div class="content flex-1" data-aos="fade-right">
+                    <p class="text-lg text-white mb-2">Hi I am</p>
+                    <h1 class="text-4xl md:text-5xl font-extrabold mb-2 text-white drop-shadow">Lord Raiden Ramirez</h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-white/90">Practicing Web development</h2>
+                    <div class="socials flex space-x-4 mb-6 text-2xl">
+                        <span class="hover:text-[#a83232] cursor-pointer">🔗</span>
+                        <span class="hover:text-[#a83232] cursor-pointer">📷</span>
+                        <span class="hover:text-[#a83232] cursor-pointer">🎨</span>
+                    </div>
+                    <div class="buttons flex space-x-4 mb-8">
+                        <button class="bg-[#800000] text-white px-6 py-2 rounded-lg shadow-lg hover:bg-[#a83232] hover:scale-105 transition-transform duration-300">Hire Me</button>
+                        <button class="border border-white text-white px-6 py-2 rounded-lg hover:bg-white hover:text-[#800000] transition">Download CV</button>
+                    </div>
+                    <div class="stats flex space-x-8 text-center">
+                        <div>
+                            <strong class="block text-2xl text-white">2</strong>
+                            <span class="text-white/90">Experiences</span>
+                        </div>
+                        <div>
+                            <strong class="block text-2xl text-white">3</strong>
+                            <span class="text-white/90">Project done</span>
+                        </div>
+                        <div>
+                            <strong class="block text-2xl text-white">3</strong>
+                            <span class="text-white/90">RAIDENS CLIENT</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="image flex-1 flex justify-center" data-aos="fade-left">
+                    <img src="{{ url_for('static', filename='images/lordgrad.jpg') }}" alt="Profile" class="w-64 h-64 object-cover rounded-full shadow-2xl border-4 border-white/30" />
+                </div>
+            </section>
+
+            <!-- Services Section -->
+            <div data-aos="fade-up">{% include 'services.html' %}</div>
+            <!-- About Section -->
+            <div data-aos="fade-up">{% include 'about.html' %}</div>
+            <!-- Portfolio Section -->
+            <div data-aos="fade-up">{% include 'portfolio.html' %}</div>
+            <!-- Contact Section -->
+            <div data-aos="fade-up">{% include 'contact.html' %}</div>
+            <!-- Testimonials Section -->
+            <div data-aos="fade-up">{% include 'testimonials.html' %}</div>
+        </div>
+        <!-- AOS Animate On Scroll JS -->
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+        <script>AOS.init({ once: true, duration: 800 });</script>
+    </body>
+    </html>

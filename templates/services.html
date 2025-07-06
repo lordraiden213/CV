@@ -1,0 +1,59 @@
+<section id="services" class="relative py-20 bg-[#800000] border-t-4 border-[#800000] overflow-hidden">
+    <!-- Maroon gradient overlay -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#800000]/80 via-[#a83232]/60 to-[#f3e8e8]/40 pointer-events-none"></div>
+    <div class="relative max-w-5xl mx-auto px-4">
+        <h1 class="text-4xl font-extrabold text-[#800000] mb-2 tracking-tight text-center bg-white/80 rounded-2xl py-2 shadow-lg">Services I Offer</h1>
+        <!-- Decorative divider -->
+        <div class="flex justify-center mb-6">
+            <span class="inline-block w-24 h-1 rounded-full bg-[#a83232] opacity-70"></span>
+        </div>
+        <p class="text-lg text-slate-100 mb-10 text-center">I provide a range of design and development services to help your business stand out and succeed.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <!-- UI/UX Design -->
+            <div class="service-card bg-white/80 backdrop-blur p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:ring-4 hover:ring-[#a83232]/30 hover:scale-105 transition-all duration-300 flex flex-col items-center text-center border-t-4 border-[#800000] cursor-pointer" data-aos="fade-up" data-aos-delay="0" data-title="UI/UX Design" data-img="{{ url_for('static', filename='images/ui.jpg') }}" data-desc="Crafting intuitive, modern interfaces that enhance user experience and engagement.">
+                <img src="{{ url_for('static', filename='images/ui.jpg') }}" alt="UI/UX Design" class="w-24 h-24 object-cover rounded-full mb-4 border-4 border-[#800000]/20 shadow" />
+                <h2 class="text-xl font-bold text-[#800000] mb-2">UI/UX Design</h2>
+                <p class="text-slate-700">Crafting intuitive, modern interfaces that enhance user experience and engagement.</p>
+            </div>
+            <!-- Create Website using Flask Python -->
+            <div class="service-card bg-white/80 backdrop-blur p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:ring-4 hover:ring-[#a83232]/30 hover:scale-105 transition-all duration-300 flex flex-col items-center text-center border-t-4 border-[#800000] cursor-pointer" data-aos="fade-up" data-aos-delay="100" data-title="Create Website using Flask Python" data-img="{{ url_for('static', filename='images/web.png') }}" data-desc="Building dynamic and responsive websites using Flask, a powerful Python web framework.">
+                <img src="{{ url_for('static', filename='images/web.png') }}" alt="Create Website using Flask Python" class="w-24 h-24 object-cover rounded-full mb-4 border-4 border-[#800000]/20 shadow" />
+                <h2 class="text-xl font-bold text-[#800000] mb-2">Create Website using Flask Python</h2>
+                <p class="text-slate-700">Building dynamic and responsive websites using Flask, a powerful Python web framework.</p>
+            </div>
+            <!-- Frontend Developer (Still Practicing) -->
+            <div class="service-card bg-white/80 backdrop-blur p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:ring-4 hover:ring-[#a83232]/30 hover:scale-105 transition-all duration-300 flex flex-col items-center text-center border-t-4 border-[#800000] cursor-pointer" data-aos="fade-up" data-aos-delay="200" data-title="Frontend Developer (Still Practicing)" data-img="{{ url_for('static', filename='images/web.png') }}" data-desc="Developing and practicing frontend skills using HTML, CSS, JavaScript, and modern frameworks.">
+                <img src="{{ url_for('static', filename='images/web.png') }}" alt="Frontend Developer (Still Practicing)" class="w-24 h-24 object-cover rounded-full mb-4 border-4 border-[#800000]/20 shadow" />
+                <h2 class="text-xl font-bold text-[#800000] mb-2">Frontend Developer (Still Practicing)</h2>
+                <p class="text-slate-700">Developing and practicing frontend skills using HTML, CSS, JavaScript, and modern frameworks.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="service-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 relative animate-fadeIn">
+            <button id="close-modal" class="absolute top-3 right-3 text-2xl text-[#800000] hover:text-[#a83232]">&times;</button>
+            <img id="modal-img" src="" alt="Service" class="w-24 h-24 object-cover rounded-full mx-auto mb-4 border-4 border-[#800000]/20 shadow" />
+            <h2 id="modal-title" class="text-2xl font-bold text-[#800000] mb-2 text-center"></h2>
+            <p id="modal-desc" class="text-slate-700 text-center"></p>
+        </div>
+    </div>
+
+    <script>
+    document.querySelectorAll('.service-card').forEach(card => {
+        card.addEventListener('click', function() {
+            document.getElementById('modal-title').textContent = this.getAttribute('data-title');
+            document.getElementById('modal-img').src = this.getAttribute('data-img');
+            document.getElementById('modal-desc').textContent = this.getAttribute('data-desc');
+            document.getElementById('service-modal').classList.remove('hidden');
+        });
+    });
+    document.getElementById('close-modal').onclick = function() {
+        document.getElementById('service-modal').classList.add('hidden');
+    };
+    document.getElementById('service-modal').addEventListener('click', function(e) {
+        if (e.target === this) this.classList.add('hidden');
+    });
+    </script>
+</section>
